@@ -2,31 +2,40 @@ import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
 
 
 
 class RegistrationApp(App):
   def build(self):
     self.title = "Registration Form"
-    layout = BoxLayout(orientation='vertical',padding=30, spacing=10)
+    layout = BoxLayout(orientation='vertical', padding=30, spacing=10)
 
-    head_label = Label(tex="Python User Registration App", font_size=26, bold=True, height=40)
+    head_label = Label(text="Python User Registration App", font_size=26, bold=True, height=40)
 
     # Adding Label
-    name_label = Label(tex="Name:", font_size=18)
+    name_label = Label(text="Name:", font_size=18)
+    self.name_input =TextInput(multiline=False, font_size=18)
 
-    email_label = Label(tex="Email:", font_size=18)
+    email_label = Label(text="Email:", font_size=18)
+    self.email_input =TextInput(multiline=False, font_size=18)
 
-    password_label = Label(tex="Password:", font_size=18)
+    password_label = Label(text="Password:", font_size=18)
+    self.password_input =TextInput(multiline=False, font_size=18, password=True)
 
-    confirm_label = Label(tex="Confirm Password:", font_size=18)
+    confirm_label = Label(text="Confirm Password:", font_size=18)
+    self.confirm_input =TextInput(multiline=False, font_size=18, password=True)
 
 
     layout.add_widget(head_label)
     layout.add_widget(name_label)
+    layout.add_widget(self.name_input)
     layout.add_widget(email_label)
+    layout.add_widget(self.email_input)
     layout.add_widget(password_label)
+    layout.add_widget(self.password_input)
     layout.add_widget(confirm_label)
+    layout.add_widget(self.confirm_input)
     return layout
 
 
