@@ -3,6 +3,7 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
 
 
 
@@ -27,6 +28,10 @@ class RegistrationApp(App):
     self.confirm_input =TextInput(multiline=False, font_size=18, password=True)
 
 
+    #Button
+    submit_button = Button()
+
+    
     layout.add_widget(head_label)
     layout.add_widget(name_label)
     layout.add_widget(self.name_input)
