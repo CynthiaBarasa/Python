@@ -59,7 +59,7 @@ class RegistrationApp(App):
     elif password != confirm_password:
       message = "Passwords do not match"
 
-    # Popup
+    # Popup..
       popup = popup(title = "Registration Status", content=Label(text=message), size_hint=(None, None), size=(400,200))
       popup.open()
 
