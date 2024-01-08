@@ -1,3 +1,4 @@
+from tkinter.tix import PopupMenu
 import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
@@ -29,9 +30,8 @@ class RegistrationApp(App):
 
 
     #Button
-    submit_button = Button()
+    submit_button = Button(text='Register', font_size=18, on_press=self.register)
 
-    
     layout.add_widget(head_label)
     layout.add_widget(name_label)
     layout.add_widget(self.name_input)
@@ -41,8 +41,27 @@ class RegistrationApp(App):
     layout.add_widget(self.password_input)
     layout.add_widget(confirm_label)
     layout.add_widget(self.confirm_input)
+    layout.add_widget(submit_button)
     return layout
 
+
+  def register(self, instance):
+      # Collect information
+    name = self.name_input.text
+    email = self.email_input.text
+    password = self.password_input.text
+    confirm_password = self.confirm_input.text
+
+    #Validation
+    if name.strip() =='' or  email.strip() == '' or password.strip =='' or confirm_password.strip=='':
+      message = "Please fill in all fields"
+
+    elif password != confirm_password:
+      message = "Passwords do not match"
+
+    # Popup
+      popup = popup(title = "Registration Status", content=Label(text=message), size_hint=(None, None), size=(400,200))
+      popup.open()
 
 
 if __name__=='__main__':
