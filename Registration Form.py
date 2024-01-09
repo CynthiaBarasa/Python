@@ -13,7 +13,7 @@ class RegistrationApp(App):
 
     head_label = Label(text="Python User Registration App", font_size=26, bold=True, height=40)
 
-    # Adding Label
+    # Adding Label...
     name_label = Label(text="Name:", font_size=18)
     self.name_input =TextInput(multiline=False, font_size=18)
 
@@ -27,7 +27,7 @@ class RegistrationApp(App):
     self.confirm_input =TextInput(multiline=False, font_size=18, password=True)
 
 
-    #Button
+    #Button...
     submit_button = Button(text='Register', font_size=18, on_press=self.register)
 
     layout.add_widget(head_label)
@@ -50,7 +50,7 @@ class RegistrationApp(App):
     password = self.password_input.text
     confirm_password = self.confirm_input.text
 
-    #Validation
+    #Validation...
     if name.strip() =='' or  email.strip() == '' or password.strip =='' or confirm_password.strip=='':
       message = "Please fill in all fields"
 
