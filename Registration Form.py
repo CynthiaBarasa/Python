@@ -54,7 +54,7 @@ class RegistrationApp(App):
     confirm_password = self.confirm_input.text
 
     #Validation
-    if name.strip() =='' or  email.strip() == '' or password.strip =='' or confirm_password.strip=='':
+    if name.strip() == '' or  email.strip() == '' or password.strip == '' or confirm_password.strip == '':
       message = "Please fill in all fields"
 
     elif password != confirm_password:
@@ -62,6 +62,11 @@ class RegistrationApp(App):
 
     else:
       filename = name + '.txt'
+      with open(filename, 'w') as file:
+        file.write('Name: {}\n' .format(name))
+        file.write('Email: {}\n' .format(email))
+        file.write('Password: {}\n' .format(password))
+      message = "Registration Successful!\nName: {}\nEmail: {}".format(name, email)
 
     # Popup
       popup = Popup(title = "Registration Status", content=Label(text=message), size_hint=(None, None), size=(400,200))
