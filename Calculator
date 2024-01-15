@@ -37,7 +37,7 @@ class MainApp(App):
             text="=", font_size=30, background_color="grey", pos_hint={"center_x": 0.5, "center_y": 0.5},
         )
         equal_button.bind(on_press=self.on_solution)
-        main.layout.add_widget(equal_button)
+        main_layout.add_widget(equal_button)
 
         return main_layout
     
