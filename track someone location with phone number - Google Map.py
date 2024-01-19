@@ -1,5 +1,6 @@
 import phonenumbers
 import opencage
+import folium 
 from myphone import number
 
 from phonenumbers import geocoder
@@ -19,4 +20,14 @@ key = 'afba35529bf740999c711f6456eead83'
 geocoder = OpenCageGeocode(key)
 query = str(location)
 results = geocoder.geocode(query)
-print(results)
+#print(results)
+
+lat = results[0]['geometry']['lat']
+lng = results[0]['geometry']['lng']
+
+print(lat, lng)
+
+myMap = folium.Map(location=[lat, lng], zoom_start=9)
+folium.Marker([lat, lng], popup=location).add_to(myMap)
+
+myMap.save("mylocation.html")
