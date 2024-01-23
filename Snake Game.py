@@ -1,16 +1,16 @@
-# Importing Libraries
+#Importing Libraries
 import turtle
 import random
 import time
 
-# Creating Screen
+#Creating Screen
 screen = turtle.Screen()
 screen.title("SNAKE GAME")
 screen.setup(width=700, heigh=700)
 screen.tracer(0)
 screen.bgcolor("#1d1d1d")
 
-# Creating Border
+#Creating Border
 turtle.speed(5)
 turtle.pensize(4)
 turtle.penup()
@@ -75,3 +75,28 @@ def snake_go_left():
 def snake_go_right():
     if snake.direction !="left":
         snake.direction ="right"
+
+def move():
+    if snake.direction =="up":
+        y = snake.ycor()
+        snake.sety(y+20)
+    if snake.direction =="down":
+        y = snake.ycor()
+        snake.sety(y-20)
+    if snake.direction =="left":
+        x = snake.xcor()
+        snake.sety(x-20)
+def move():
+    if snake.direction =="up":
+        x = snake.xcor()
+        snake.sety(x+20)
+
+# Keyboard binding
+screen.listen()
+screen.onkeypress(snake_go_up, "Up")
+screen.onkeypress(snake_go_down, "Down")
+screen.onkeypress(snake_go_left, "Left")
+screen.onkeypress(snake_go_right, "Right")
+
+# Main loop
+
