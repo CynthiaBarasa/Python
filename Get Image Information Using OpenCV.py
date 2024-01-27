@@ -6,3 +6,4 @@ print("Height: ", img.shape[0])
 print("Width: ", img.shape[1])
 
 cv2.waitKey(0)
+
